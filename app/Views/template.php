@@ -142,6 +142,13 @@
                 <i class="bi bi-envelope-fill"></i> Contact
               </a>
             </li>
+            <?php if (session()->get('isLoggedIn')): ?>
+            <li class="nav-item">
+              <a class="nav-link <?= (isset($active_page) && $active_page == 'announcements') ? 'active' : '' ?>" href="<?= site_url('/announcements') ?>">
+                <i class="bi bi-megaphone-fill"></i> Announcements
+              </a>
+            </li>
+            <?php endif; ?>
           </ul>
           <ul class="navbar-nav ms-auto">
             <?php if (session()->get('isLoggedIn')): ?>
@@ -165,6 +172,9 @@
                       <i class="bi bi-speedometer2"></i> Dashboard
                     </a></li>
                     <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="<?= site_url('/announcements/manage') ?>">
+                      <i class="bi bi-megaphone"></i> Manage Announcements
+                    </a></li>
                     <li><a class="dropdown-item" href="#" onclick="alert('Feature coming soon!')">
                       <i class="bi bi-people"></i> Manage Users
                     </a></li>
